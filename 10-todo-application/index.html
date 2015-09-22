@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html ng-app="todoApp">
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title>07 - Todo-Application</title>
+
+        <!-- Styles -->
+        <link rel="stylesheet" href="./../bower_components/bootstrap/dist/css/bootstrap.css">
+    </head>
+    <body ng-cloak>
+        <div class="container" ng-controller="MainController as main">
+
+            <!-- App header -->
+            <div class="page-header">
+                <h1 class="h1">AngularJS Workshop <small>{{main.appTitle}}</small></h1>
+            </div>
+
+            <!-- App main container -->
+            <div class="panel panel-default" ng-controller="TodoController as todo">
+                <div class="panel-heading">
+                    <div class="row">
+
+                        <!-- Search form -->
+                        <div class="col-lg-6">
+                            <form>
+                                <div class="input-group">
+                                    <input type="text"
+                                           class="form-control"
+                                           id="newTodo"
+                                           placeholder="Neue Aufgabe..."
+                                           ng-model="todo.text"
+                                           ng-keyup="todo.onEnter($event)"
+                                           ng-trim="true" />
+                                    <span class="input-group-btn">
+                                        <button type="button"
+                                                class="btn btn-default"
+                                                ng-click="todo.onAdd()"
+                                                ng-disabled="!todo.text">Speichern</button>
+                                    </span>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- Filter Buttons -->
+                        <div class="col-lg-6">
+                            <div class="form-inline">
+                                <label>Zeige: </label>
+                                <span class="btn-group">
+                                    <button type="button"
+                                            class="btn btn-default"
+                                            ng-click="todo.onSelectFilter(todo.filterTypes.ALL_ITEMS)"
+                                            ng-disabled="todo.filterIsActive(todo.filterTypes.ALL_ITEMS)">alle</button>
+                                    <button type="button"
+                                            class="btn btn-default"
+                                            ng-click="todo.onSelectFilter(todo.filterTypes.COMPLETED_ITEMS)"
+                                            ng-disabled="todo.filterIsActive(todo.filterTypes.COMPLETED_ITEMS)">erledigt</button>
+                                    <button type="button"
+                                            class="btn btn-default"
+                                            ng-click="todo.onSelectFilter(todo.filterTypes.OPEN_ITEMS)"
+                                            ng-disabled="todo.filterIsActive(todo.filterTypes.OPEN_ITEMS)">offen</button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item list -->
+                <div class="panel-body">
+                    <p ng-show="!result.length"><strong>Keine Treffer für diese Auswahl!</strong></p>
+
+                    <section ng-show="todo.getList().length">
+                        <ul class="list-group">
+                            <li class="list-group-item"
+                                ng-repeat="item in todo.getList() | filter:todo.getFilter() as result track by $index">
+                                <span ng-style="todo.setStyle(item)">{{item.text}}</span>
+                                <input class="pull-right"
+                                       type="checkbox"
+                                       ng-checked="item.completed"
+                                       ng-click="todo.onToggleStatus(item)" />
+                            </li>
+                        </ul>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+        <!-- JS -->
+        <script src="./../bower_components/angular/angular.js"></script>
+        <script src="./app.js"></script>
+        <script src="./services.js"></script>
+        <script src="./controllers.js"></script>
+    </body>
+</html>

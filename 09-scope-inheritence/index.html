@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html ng-app="myModule">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Scope Isolation</title>
+    <link type="text/css" rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css"/>
+</head>
+<body>
+<div class="container">
+    <div class="page-header">
+        <h1 class="h1">AngularJS Workshop
+            <small>Scope Inheritence!</small>
+        </h1>
+    </div>
+    <div ng-controller="MyController as controller">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-5">
+                <div class="panel panel-default">
+                    <div class="panel panel-heading">Werte im Controller</div>
+                    <div class="panel panel-body">
+                        UserName im Controller: {{controller.userName}} <br/>
+                        Email im Controller: {{controller.email}}<br/>
+                        Name im Controller: {{controller.name}} <br/>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel panel-heading">Ändere im Controller</div>
+                    <div class="panel panel-body">
+                        <div class="form-group">
+                            <input type="text" ng-model="controller.userName" class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" ng-model="controller.email" class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="name-value" class="form-control"/>
+                            <button class="form-control btn-success" ng-click="controller.setNameByForm();">
+                                Set name
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <my-directive
+                        attr-one-way="{{controller.userName}}"
+                        attr-two-way="controller.email"
+                        attr-functional="controller.setName(value)">
+
+                </my-directive>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+</div>
+<script src="../bower_components/angular/angular.js"></script>
+
+<script src="app.js"></script>
+</body>
+</html>

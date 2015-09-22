@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>08 - Service</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+</head>
+<body>
+<div class="container">
+    <div class="page-header">
+        <h1 class="h1">AngularJS Workshop
+            <small>Services!</small>
+        </h1>
+    </div>
+
+    <div class="panel panel-default" ng-controller="UserController as ctrl">
+        <div class="panel-heading">User list</div>
+        <div class="panel-body">
+            <div class="row">
+                <table class="table">
+                    <th>Name</th>
+                    <th>Lastname</th>
+                    <tr ng-repeat="user in ctrl.users">
+                        <td>{{user.name}}</td>
+                        <td>{{user.lastName}}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <form>
+                        <div class="input-group">
+                            <input type="text"
+                                   class="form-control"
+                                   id="name"
+                                   placeholder="Neue Vorname..."
+                                   ng-model="ctrl.userToCreate.name"
+                                    />
+                            <input type="text"
+                                   class="form-control"
+                                   id="lastName"
+                                   placeholder="Neue Nachname..."
+                                   ng-model="ctrl.userToCreate.lastName"
+                                    />
+                            <button type="button"
+                                    class="btn btn-default"
+                                    ng-click="ctrl.addUser()">Erstellen</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS -->
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

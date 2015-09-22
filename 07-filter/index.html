@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title>07 - Filter</title>
+
+        <!-- Styles -->
+        <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="page-header">
+                <h1 class="h1">AngularJS Workshop <small>Filter!</small></h1>
+            </div>
+
+            <!-- Built-In-Filter: uppercase -->
+            <div class="panel panel-default" ng-controller="UppercaseController as ctrl">
+                <div class="panel-heading">Built-In-Filter (Bsp. uppercase)</div>
+                <div class="panel-body">
+                    <strong>Benutzer</strong>:
+                    {{ctrl.user.lastName | uppercase}}, {{ctrl.user.firstName}}
+                </div>
+            </div>
+
+            <!-- Built-In-Filter: limitTo -->
+            <div class="panel panel-default" ng-controller="LimitToController as ctrl">
+                <div class="panel-heading">Built-In-Filter mit Argumenten (Bsp. limitTo)</div>
+                <div class="panel-body">
+                    <p>
+                        {{ctrl.sentence | limitTo:ctrl.limit}}
+                    </p>
+
+                    <div class="form-inline">
+                        <label>Textlänge:</label>
+                        <input class="form-control" type="number" step="1" ng-model="ctrl.limit" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Custom-Filter: localCurrency -->
+            <div class="panel panel-default" ng-controller="CurrencyFilterController as ctrl">
+                <div class="panel-heading">Custom-Filter (Bsp. localCurrency)</div>
+                <div class="panel-body">
+                    <strong>Angebot</strong>
+
+                    <p>{{ctrl.product.title}} - {{ctrl.product.price | localCurrency}}</p>
+                </div>
+            </div>
+
+            <!-- Listen-Filter -->
+            <div class="panel panel-default" ng-controller="ListFilterController as ctrl">
+                <div class="panel-heading">
+                    Listen-Filter
+                    <div class="form-inline">
+                        <label for="search">Suche nach Name:</label>
+                        <input id="search" class="form-control" type="text" ng-model="ctrl.search" />
+
+                        <label>Zeige: </label>
+                    <span class="btn-group">
+                        <button class="btn btn-default" ng-click="ctrl.setStatusFilter()">alle</button>
+                        <button class="btn btn-default" ng-click="ctrl.setStatusFilter('online')">online</button>
+                        <button class="btn btn-default" ng-click="ctrl.setStatusFilter('offline')">offline</button>
+                    </span>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <strong>Buddies</strong>
+                    <ol>
+                        <li ng-repeat="buddy in ctrl.buddies | filter:ctrl.search | filter:ctrl.statusFilter track by $index">
+                            {{buddy.name}} ({{buddy.online ? 'online' : 'offline'}})
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <!-- JS -->
+        <script src="../bower_components/angular/angular.js"></script>
+        <script src="app.js"></script>
+    </body>
+</html>

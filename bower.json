@@ -1,0 +1,13 @@
+{
+  "name": "AngularJS-Workshop-I",
+  "version": "0.0.1",
+  "authors": [
+    "nosch <norbert.schmidt@mayflower.de>"
+  ],
+  "description": "Sample code for the AngularJS workshop at Mayflower - Getting Started.",
+  "license": "MIT",
+  "dependencies": {
+    "angular": "1.4.5",
+    "bootstrap": "~3.3.5"
+  }
+}

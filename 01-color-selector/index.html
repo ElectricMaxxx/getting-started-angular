@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title>01 - Color Selector</title>
+
+        <!-- Styles -->
+        <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+    </head>
+    <body ng-init="r = 1; g = 255; b = 1; a = 1; text = 'Max + Norbert';">
+
+        <div class="container">
+            <div class="page-header">
+                <h1 class="h1">AngularJS Workshop <small>{{'Start' + '!'}}</small></h1>
+            </div>
+
+
+            <div class="panel panel-default">
+                <div class="panel-heading">Select Color</div>
+                <div class="panel-body">
+                    R: <input type="range" min="0" max="255" step="1" ng-model="r"><br />
+                    G: <input type="range" min="0" max="255" step="1" ng-model="g"><br />
+                    B: <input type="range" min="0" max="255" step="1" ng-model="b"><br />
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">Add Text</div>
+                <div class="panel-body form-inline">
+                    <label for="text">Text:</label>
+                    <input type="text" class="form-control" id="text" ng-model="text">
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">Color Result</div>
+                <div class="panel-body text-center">
+                    <div style="height: 200px; background-color: rgba({{r}}, {{g}}, {{b}}, {{a}})">
+                        <span style="color: rgba({{255 - r}}, {{255 - g}}, {{ 255  - b}}, 1)">
+                            {{ text }}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- JS -->
+        <script src="../bower_components/angular/angular.js"></script>
+    </body>
+</html>
