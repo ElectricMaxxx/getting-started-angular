@@ -1,4 +1,4 @@
-describe("obiDirective", function () {
+describe("myDirective", function () {
     var $compile,
         $rootScope,
         element;
@@ -14,7 +14,7 @@ describe("obiDirective", function () {
     beforeEach(function () {
 
         // compiliere das Element und feuere alle Watcher
-        element = $compile("<obi-directive></obi-directive>")($rootScope);
+        element = $compile("<my-directive></my-directive>")($rootScope);
         $rootScope.$digest();
     });
 

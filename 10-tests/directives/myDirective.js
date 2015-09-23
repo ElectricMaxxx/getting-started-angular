@@ -1,5 +1,5 @@
 angular.module("testModule")
-    .directive("obiDirective", function () {
+    .directive("myDirective", function () {
         return {
             restrict: "E",
             replace: true,

@@ -93,20 +93,17 @@ body { background-color: #eeeeee; padding: 0; margin: 5px; overflow-y: scroll; }
 </style>
 </head>
 
-<body id="HTMLReporter" class="html-reporter showDetails">
+<body id="HTMLReporter" class="html-reporter">
 <h1>Tested in Chrome 45.0.2454 (Linux 0.0.0) on Wed Sep 23 2015</h1>
 
 <div class="alert">
 
 
-<!-- <span class="failingAlert bar">Failed 1 specs</span> -->
-<span class="failingAlert bar"><span class="fold-buttons"><a href="#" onclick="fold();">Fold</a> | 
-  <a href="#" onclick="unfold();">Unfold</a></span>18 specs, 1 failed, 0 pending</span>
-<span class="resultsMenu bar">
-<a class="summaryMenuItem" onclick="showSummary();" href="#">Spec List<a>|<a 
-   class="detailsMenuItem" onclick="showFailures();" href="#">Failures</a>
-</span>
 
+  
+  <span class="passingAlert bar"><span class="fold-buttons"><a href="#" onclick="fold();">Fold</a> | 
+  <a href="#" onclick="unfold();">Unfold</a></span>18 specs, 0 failed, 0 pending</span>
+  
 
 
 </div>
@@ -139,7 +136,7 @@ body { background-color: #eeeeee; padding: 0; margin: 5px; overflow-y: scroll; }
     </div>
   
     <div class="suite passed">
-      <span class="description">obiDirective</span>
+      <span class="description">myDirective</span>
     
       <div class="specSummary passed">
       <span class="description">should contain the html element</span>
@@ -198,10 +195,10 @@ body { background-color: #eeeeee; padding: 0; margin: 5px; overflow-y: scroll; }
     
     </div>
   
-    <div class="suite failed">
+    <div class="suite passed">
       <span class="description">VolkswagenTest</span>
     
-      <div class="specSummary failed">
+      <div class="specSummary passed">
       <span class="description">should have lower values</span>
       </div>
     
@@ -229,16 +226,6 @@ body { background-color: #eeeeee; padding: 0; margin: 5px; overflow-y: scroll; }
 
 <div id="details">
   
-  
-  <div class="specDetail failed">
-    <span class="description">VolkswagenTest should have lower values</span>
-    <div class="stackTrace">
-      <div class="resultMessage">Expected '*' to be true.
-    at Object.&lt;anonymous&gt; (http://localhost:9876/base/10-tests/tests/unit/quatsch.js?674c09f8e0575c82128b8283ae60e526b31bf028:3:21)</div>
-    </div>
-  </div>
-  
-  
 </div>
 
 <script>
@@ -250,7 +237,7 @@ document.body.onkeypress = function (e) {
   switch (e.keyCode) {
     case 102: toggleFold(); break;
     case 49: showSummary(); break;
-    case 50: showFailures(); break;
+    
   }
 };
 
