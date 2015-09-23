@@ -4,13 +4,13 @@ module.exports = function(config){
         basePath : '../../',
 
         files : [
-            'bower_components/angular/angular.js',
-            'bower_components/angular-mocks/angular-mocks.js',
+            '../samples-getting-started/bower_components/angular/angular.js',
+            '../samples-getting-started/bower_components/angular-mocks/angular-mocks.js',
 
-            'step_11_tests/app.js',
+            '10-tests/app.js',
 
-            'step_11_tests/**/*.js',
-            'step_11_tests/tests/unit/**/*Spec.js'
+            '10-tests/**/*.js',
+            '10-tests/tests/unit/**/*Spec.js'
         ],
 
         autoWatch : true,

@@ -1,8 +1,8 @@
 {
-  "name": "obi-workshop",
+  "name": "angular-workshop",
   "version": "0.0.1",
   "author": "Mayflower",
-  "homepage": "https://github.com/ElectricMaxxx/angular-workshop-examples.git",
+  "homepage": "https://github.com/ElectricMaxxx/getting-started-angular",
   "licenses": [
     {
       "type": "MIT"
@@ -25,7 +25,7 @@
   "scripts": {
     "prestart": "npm install",
     "start": "http-server",
-    "test": "./node_modules/karma/bin/karma start step_11_tests/tests/karma.conf.js",
+    "test": "./node_modules/karma/bin/karma start 10-tests/tests/karma.conf.js",
     "preupdate-webdriver": "npm install",
     "update-webdriver": "webdriver-manager update",
     "preprotractor": "npm run update-webdriver",
